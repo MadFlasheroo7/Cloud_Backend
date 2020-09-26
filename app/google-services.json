@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1043226754171",
+    "firebase_url": "https://cloud-backend-37752.firebaseio.com",
+    "project_id": "cloud-backend-37752",
+    "storage_bucket": "cloud-backend-37752.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043226754171:android:b92393c6e090650ede36de",
+        "android_client_info": {
+          "package_name": "com.example.cloudbackend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043226754171-1no0v5227lts1emhot5q97un791bjrn2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgOky9xaC8IZ0Ee8Ig6eYAR8XpoODxvz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043226754171-1no0v5227lts1emhot5q97un791bjrn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
