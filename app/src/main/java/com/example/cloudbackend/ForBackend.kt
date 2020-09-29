@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_for_backend.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class ForBackend : AppCompatActivity() {
     private lateinit var bottomNavigation: BottomNavigationView
@@ -31,11 +33,32 @@ class ForBackend : AppCompatActivity() {
             }
             true
         }
+
+//        val dishList = mutableListOf(
+//            Dishes("Chicken Tikka :)"),
+//            Dishes("Veg Noodles"),
+//            Dishes("Another Chicken"),
+//            Dishes("Another Chicken"),
+//            Dishes("Another Chicken"),
+//            Dishes("Another Chicken"),
+//            Dishes("Another Chicken"),
+//            Dishes("Another Chicken")
+//        )
+//        val adapter = Adapter(dishList)
+//        rvHorizontal?.adapter = adapter
+//        rvHorizontal?.layoutManager = LinearLayoutManager(this)
+//        var dishList = mutableListOf(
+//            Dishes("Chicken Tikka :)")
+//        )
 //        signout.setOnClickListener(View.OnClickListener {
 //            signOut()
 //        })
     }
 
+    private fun dishes(){
+        val dishes = ArrayList<String>()
+        dishes.add("")
+    }
     private fun setCurrentFragment(fragment : Fragment){
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragmentHolder,fragment)

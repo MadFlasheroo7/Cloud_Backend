@@ -1,42 +1,48 @@
 package com.example.cloudbackend
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class Home : Fragment() {
+class Home : Fragment(),OnDishClickListener {
+    var dishlist = ArrayList<Dishes>()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        dishlist.add(Dishes("Chicken Tikka :)",R.drawable.chicken_tikka))
+        dishlist.add(Dishes("chicken Noodles",R.drawable.chicken_noodles))
+        dishlist.add(Dishes("KFC wala chicken",R.drawable.best_chicken))
+        dishlist.add(Dishes("MacDonald wala chicken",R.drawable.best_chicken))
+        dishlist.add(Dishes("chicken Noodles",R.drawable.chicken_noodles))
+        dishlist.add(Dishes("Full Thali",R.drawable.veg2))
+        dishlist.add(Dishes("chicken Noodles",R.drawable.chicken_noodles))
+        dishlist.add(Dishes("Another Chicken",R.drawable.best_chicken))
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//    }
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rvHorizontal)
+        recyclerView.setHasFixedSize(true)
+        val adapter = Adapter(dishlist,this)
+        recyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
+        recyclerView.layoutManager = LinearLayoutManager(context,RecyclerView.HORIZONTAL,false)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        val recyclerView2 = view.findViewById<RecyclerView>(R.id.recyclerViewVertical)
+        recyclerView2.setHasFixedSize(true)
+        val adapter2 = AdapterVertical(dishlist,this)
+        recyclerView2.adapter = adapter2
+        adapter2.notifyDataSetChanged()
+        recyclerView2.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,true)
+        return view
     }
-//    companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment Home.
-//         */
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            Home().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }
+
+    override fun onDishClickListener(position: Int) {
+        val intent = Intent(context,OrderActivity::class.java)
+        intent.putExtra("DISH_TITLE",dishlist[position].title)
+        intent.putExtra("DISH_IMAGE",dishlist[position].dishimg)
+        startActivity(intent)
+    }
 }
