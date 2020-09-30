@@ -13,14 +13,14 @@ class Home : Fragment(),OnDishClickListener {
     var dishlist = ArrayList<Dishes>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        dishlist.add(Dishes("Chicken Tikka :)",R.drawable.chicken_tikka))
-        dishlist.add(Dishes("chicken Noodles",R.drawable.chicken_noodles))
-        dishlist.add(Dishes("KFC wala chicken",R.drawable.best_chicken))
-        dishlist.add(Dishes("MacDonald wala chicken",R.drawable.best_chicken))
-        dishlist.add(Dishes("chicken Noodles",R.drawable.chicken_noodles))
-        dishlist.add(Dishes("Full Thali",R.drawable.veg2))
-        dishlist.add(Dishes("chicken Noodles",R.drawable.chicken_noodles))
-        dishlist.add(Dishes("Another Chicken",R.drawable.best_chicken))
+        dishlist.add(Dishes("Chicken Tikka :)","69 ₹",R.drawable.chicken_tikka))
+        dishlist.add(Dishes("chicken Noodles","70 ₹",R.drawable.chicken_noodles))
+        dishlist.add(Dishes("KFC wala chicken","499 ₹",R.drawable.best_chicken))
+        dishlist.add(Dishes("MacDonald wala chicken","599 ₹",R.drawable.best_chicken))
+        dishlist.add(Dishes("chicken Noodles","70 ₹",R.drawable.chicken_noodles))
+        dishlist.add(Dishes("Full Thali","199 ₹",R.drawable.veg2))
+        dishlist.add(Dishes("chicken Noodles","70 ₹",R.drawable.chicken_noodles))
+        dishlist.add(Dishes("Another Chicken","99 ₹",R.drawable.best_chicken))
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvHorizontal)
         recyclerView.setHasFixedSize(true)
@@ -42,6 +42,7 @@ class Home : Fragment(),OnDishClickListener {
     override fun onDishClickListener(position: Int) {
         val intent = Intent(context,OrderActivity::class.java)
         intent.putExtra("DISH_TITLE",dishlist[position].title)
+        intent.putExtra("DISH_PRICE",dishlist[position].price)
         intent.putExtra("DISH_IMAGE",dishlist[position].dishimg)
         startActivity(intent)
     }

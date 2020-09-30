@@ -20,25 +20,41 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dishImage">
+        app:layout_constraintTop_toBottomOf="@+id/dishImage"
+        android:layout_marginStart="8dp">
 
-        <TextView
-            android:id="@+id/dish_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto_mono"
-            android:text="Chicken Tikka:)"
-            android:paddingBottom="10dp"
-            android:textColor="#000"
-            android:paddingTop="10dp"
-            android:textSize="30sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/dish_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_mono"
+                android:text="Chicken Tikka:)"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:paddingTop="10dp"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/dish_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="69₹"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="30sp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1">
 
             <ImageView
@@ -76,6 +92,16 @@
                 android:src="@drawable/ic_round_star_24"
                 app:tint="#DD2C00" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Review:"
+            android:paddingTop="10dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -94,19 +120,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Review:"
-                    android:textColor="#000"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_weight="0">
                 <TextView
                     android:layout_width="match_parent"
@@ -121,12 +134,13 @@
         android:id="@+id/materialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         android:layout_marginBottom="8dp"
         android:text="buy now"
+        app:cornerRadius="20dp"
         app:icon="@drawable/ic_cart_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
